@@ -13,30 +13,19 @@ namespace BookStoreNew.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        private readonly IBookStoreRepo<Book> _bookRepo;
-        private readonly IBookStoreRepo<Author> _authorRepo;
-
-
-        public HomeController(ILogger<HomeController> logger,
-                IBookStoreRepo<Book> bookRepo,
-                IBookStoreRepo<Author> authorRepo)
-        {
-            _logger = logger;
-            _bookRepo = bookRepo;
-            _authorRepo = authorRepo;
-        }
+        public HomeController()
+        { }
 
         public IActionResult Index()
         {
             return View();
         }
-      
+
         public IActionResult Privacy()
         {
             return View();
         }
-     
+
         public IActionResult Images()
         {
             return View();
