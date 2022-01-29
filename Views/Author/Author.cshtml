@@ -1,0 +1,40 @@
+﻿@using BookstoreNew.Models
+@model IEnumerable<Author>
+
+@{
+    ViewData["Title"] = "Author";
+}
+
+<h1 class="text-decoration-underline text-center text-info">Authors</h1>
+
+<p>
+    <a asp-controller="Author" asp-action="CreateAuthor" class="btn btn-outline-info">Create New Author</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Full Name</th>
+            <th scope="col">Action</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td scope="row" class="font-weight-bold">
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td scope="row">
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td scope="row">
+                @Html.ActionLink("Edit", "EditAuthor", new { id = item.Id }) |
+                @Html.ActionLink("Details", "DetailsAuthor", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "DeleteAuthor", new { id = item.Id })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

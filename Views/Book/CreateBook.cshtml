@@ -1,0 +1,24 @@
+﻿@using BookstoreNew.Models
+@model Book
+@{
+    ViewData["Title"] = "Create Book";
+
+}
+<h1 class="text-info">Create New Book</h1>
+<form asp-controller="Book" asp-action="CreateBook" method="post">
+    @*<div class="form-group">
+            <label asp-for="Id">ID</label>
+            <input asp-for="Id" class="form-control col-4" aria-describedby="emailHelp" placeholder="Enter ID">
+        </div>*@
+    <div class="form-group">
+        <label asp-for="Title">Title</label>
+        <input asp-for="Title" class="form-control col-6" placeholder="Title">
+    </div>
+    <div class="form-group">
+        <label asp-for="Description">Description </label>
+        <input asp-for="Description" class="form-control col-6" placeholder="Enter Description" />
+    </div>
+    <input type="submit" value="Create" class="btn btn-primary" />
+    <a asp-action="Books" class="btn btn-outline-info">Back to List</a>
+
+</form>

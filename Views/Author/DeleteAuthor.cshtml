@@ -1,0 +1,28 @@
+﻿@model BookstoreNew.Models.Author
+
+@{
+    ViewData["Title"] = "Delete Author";
+}
+
+<h1 class="text-info">Delete Author</h1>
+<div> 
+   <div class="card">
+        <div class="card-header">
+            <h2 class="text-center">
+                Are You Sure .. You Want Delete This Author
+            </h2>
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+                <h5 class="text-center">
+                    <span>@Html.DisplayFor(model => model.Id)</span>
+                    @Html.DisplayFor(model => model.FullName)
+                </h5>
+            </p>
+            <form asp-controller="Author" asp-action="DeleteAuthor" method="post">        
+                <input type="submit" name="name" value="Delete" class="btn btn-danger" />
+                <a asp-controller="Author" asp-action="Author" class="btn btn-outline-info" >Back to List</a>
+            </form>
+        </div>
+    </div>
+</div>

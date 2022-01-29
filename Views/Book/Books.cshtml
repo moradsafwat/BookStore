@@ -1,0 +1,40 @@
+﻿@using BookstoreNew.Models
+@model IEnumerable<Book>
+
+
+<h1 class="text-decoration-underline text-center text-info">Books</h1>
+
+<p>
+    <a asp-action="CreateBook" asp-controller="Book" class="btn btn-outline-info">Create New Book</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td scope="row" class="font-weight-bold">
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td >
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditBook", new {  id=item.Id  }) |
+                    @Html.ActionLink("Details", "DetailsBook", new { id=item.Id }) |
+                    @Html.ActionLink("Delete", "DeleteBook", new { id=item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

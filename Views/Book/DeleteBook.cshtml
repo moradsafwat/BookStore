@@ -1,0 +1,30 @@
+﻿@model BookstoreNew.Models.Book
+
+@{
+    ViewData["Title"] = "Delete Book";
+}
+
+<h1 class="text-info">Delete Book</h1>
+<div>
+    <h2 class="text-center">
+        Are You Sure .. You Want Delete This Book
+    </h2>
+    <hr />
+    <div class="card">
+        <div class="card-header">
+            <span>@Html.DisplayFor(model => model.Id)</span>
+            @Html.DisplayFor(model => model.Title)
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+                @Html.DisplayFor(model => model.Description)
+            </p>
+            <form asp-action="DeleteBook" method="post">
+                <div>
+                    <input type="submit" name="name" value="Delete" class="btn btn-danger" />
+                    <a asp-controller="Book" asp-action="Books" class="btn btn-outline-info" >Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

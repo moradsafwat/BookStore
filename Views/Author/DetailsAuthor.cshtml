@@ -1,0 +1,41 @@
+﻿@model BookstoreNew.Models.Author
+
+@{
+    ViewData["Title"] = "Details Author";
+}
+
+<h1 class="text-info">Details Author</h1>
+<hr />
+    @*<dl class="row">
+        <dt class = "col-md-2">
+           ID
+        </dt>
+        <dd class = "col-md-7">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class = "col-md-2">
+            Full Name
+        </dt>
+        <dd class = "col-md-7">
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+    </dl>
+</div>*@
+    <dl class="row">
+        <dt class="col-sm-2"> ID </dt>
+        <dd class="col-6 col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+
+        <div class="w-100 d-none d-md-block"></div>
+
+        <dt class="col-sm-2">Full Name</dt>
+        <dd class="col-6 col-sm-10">
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+    </dl>
+    <div class="col-7 ">
+        <a asp-controller="Author" asp-action="EditAuthor" asp-route-id="@Model.Id" class="btn btn-info">Edit</a>
+        <a asp-controller="Author" asp-action="Author" class="btn btn-outline-info">Back to List</a>
+
+    </div>
