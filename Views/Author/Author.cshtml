@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Author";
+    int i = 1;
 }
 
 <h1 class="text-decoration-underline text-center text-info">Authors</h1>
@@ -24,15 +25,15 @@
         {
         <tr>
             <td scope="row" class="font-weight-bold">
-                @Html.DisplayFor(modelItem => item.Id)
+                @(i++)
             </td>
             <td scope="row">
                 @Html.DisplayFor(modelItem => item.FullName)
             </td>
             <td scope="row">
-                @Html.ActionLink("Edit", "EditAuthor", new { id = item.Id }) |
-                @Html.ActionLink("Details", "DetailsAuthor", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "DeleteAuthor", new { id = item.Id })
+                <a href='@Url.Action("EditBook", new {  id=item.Id  } )'><i class="bi bi-pencil-square"></i></a>
+                <a href='@Url.Action("DetailsBook", new {  id=item.Id  } )'><i class="bi bi-calendar3-week"></i></a>
+                <a href='@Url.Action("DeleteBook", new {  id=item.Id  } )'><i class="bi bi-trash"></i></a>
             </td>
         </tr>
         }

@@ -1,5 +1,6 @@
 ﻿@using BookstoreNew.Models
 @model IEnumerable<Book>
+@{int i = 1;}
 
 
 <h1 class="text-decoration-underline text-center text-info">Books</h1>
@@ -20,20 +21,19 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td scope="row" class="font-weight-bold">
-                    @Html.DisplayFor(modelItem => item.Id)
+                <td scope="row" class="font-weight-bold col-1">
+                      @(i++)
                 </td>
-                <td>
+                <td class="col-2">
                     @Html.DisplayFor(modelItem => item.Title)
                 </td>
-                <td >
+                <td class="col-7">
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
-                <td>
-                    @Html.ActionLink("Edit", "EditBook", new {  id=item.Id  }) |
-                    @Html.ActionLink("Details", "DetailsBook", new { id=item.Id }) |
-                    @Html.ActionLink("Delete", "DeleteBook", new { id=item.Id })
-                </td>
+                <td class="col-2"> 
+                    <a href='@Url.Action("EditBook", new {  id=item.Id  } )'><i class="bi bi-pencil-square"></i></a>
+                    <a href='@Url.Action("DetailsBook", new {  id=item.Id  } )'><i class="bi bi-calendar3-week"></i></a>
+                    <a href='@Url.Action("DeleteBook", new {  id=item.Id  } )'><i class="bi bi-trash"></i></a>
             </tr>
         }
     </tbody>
